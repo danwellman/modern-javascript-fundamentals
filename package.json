@@ -1,0 +1,23 @@
+{
+  "name": "modern-javascript-fundamentals",
+  "version": "1.0.0",
+  "repository": "https://github.com/danwellman/modern-javascript-fundamentals.git",
+  "description": "Example code for the Modern JavaScript Fundamentals course from Tuts+",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "browser-sync start --server --files **/*.js --no-notify --no-online"
+  },
+  "keywords": [
+    "JavaScript",
+    "ES6",
+    "ES2015"
+  ],
+  "author": "Dan Wellman",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "systemjs": "^0.20.18",
+    "systemjs-plugin-babel": "0.0.25"
+  }
+}
