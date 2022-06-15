@@ -1,32 +1,28 @@
-﻿(function () {
-    'use strict';
+'use strict';
 
-    function getApiResponse(url) {
-        return new Promise(function (resolve, reject) {
-            let request = new XMLHttpRequest();
+function getApiResponse(url) {
+  return new Promise(function (resolve, reject) {
+      let request = new XMLHttpRequest();
 
-            request.onreadystatechange = function (e) {
-                if (this.readyState == 4) {
-                    if (this.status == 200) {
-                        resolve(this.responseText);
-                    } else {
-                        reject(this.statusText);
-                    }
-                }
-            };
+      request.onload = function () {
+          if (request.status === 200) {
+              resolve(request.responseText);
+          } else {
+              reject(request.statusText);
+          }
+      }
 
-            request.open('GET', url, true);
-            request.send();
-        });
-    }
+      request.open('GET', url, true);
+      request.send();
+  });
+}
 
-    getApiResponse('http://numbersapi.com/random').then(
-        response => response.match(/^\d+/)[0].substring(0, 3)
-    ).then(
-        number => getApiResponse('https://anapioficeandfire.com/api/characters/${number}')
-    ).then(
-        character => console.log(character)
-    ).catch(
-        error => console.log(error)
-    );
-})();
+getApiResponse('http://numbersapi.com/0.000000000000000000000000000000000000000000005').then(
+  response => response.match(/^\d+/)[0].substring(0, 3)
+).then(
+  number => getApiResponse(`https://anapioficeandfire.com/api/characters/${number}`)
+).then(
+  character => console.log(character)
+).catch(
+  error => console.log(error)
+);

@@ -1,15 +1,12 @@
-﻿(function () {
-    'use strict';
+﻿'use strict';
 
-    let myWeakSet = new WeakSet();
+let myWeakSet = new WeakSet();
 
-    let someObj = {};
-    myWeakSet.add(someObj);
-    console.log(myWeakSet.has(someObj));
+let someObj = {};
+myWeakSet.add(someObj);
+console.log(myWeakSet.has(someObj));
 
-    myWeakSet.delete(someObj);
-    console.log(myWeakSet.has(someObj));
+myWeakSet.delete(someObj);
+console.log(myWeakSet.has(someObj));
 
-    let myWeakMap = new WeakMap();
-})();
-
+let myWeakMap = new WeakMap();
